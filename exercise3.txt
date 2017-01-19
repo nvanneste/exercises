@@ -1,0 +1,36 @@
+UNF 	
+DB (patientNo, FullName, WardNo, WardName, Bed Number, DrugNo, Name, Description, Dosage, MethodOfAdmin, UnitsperDay, StartDate, FinishDate)
+
+
+
+1NF 	
+patient (PatientNo, FullName, WardNo, WardName, BedNo, (DrugNo, Name, Description, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate))
+
+
+
+2NF	
+patient (PatientNo, FullName, WardNo, WardName, BedNo)
+
+Drugs (DrugNo, Name, Description, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate)
+
+
+
+3NF 	
+patient (PatientNo, FullName, WardNo, WardName, BedNo)
+
+Drugs (DrugNo, Name, Description, Dosage, MethodOfAdmin, UnitsPerDay, StartDate, FinishDate)
+
+
+
+BCNF	
+Patient (PatientNo(PK), FullName,
+
+Ward (WardNo, WardName, BedNo)
+
+Drugs (DrugNo, Name, Description, Dosage, MethodOfAdmin, 
+
+Medicin (PatientNo, DrugNo, StartDate, UnitsPerDay, FinishDate)
+
+	
+
+
