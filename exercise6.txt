@@ -1,0 +1,37 @@
+mysql -u root –p
+
+create database college;
+
+grant all on college.* to guest@localhost;
+
+Cat college.sql | mysql college
+
+
+
+﻿mysql> select concat(stdFirstName,' ',stdLastName) as Name, stdCity as City, stdGPA as GPA from student where stdGPA >= 3.7;
+
+﻿mysql> select concat(facfirstname,' ',faclastname) as Name, fachiredate as Date from faculty where year(fachiredate) = 1999 or year(fachiredate) = 2000;
+
+﻿mysql> select offerno, courseno, facssn, concat(offterm,' ', offyear) as offering from offering where offterm="fall" and offyear="2005" or offterm="winter" and offyear="2006";
+
+﻿mysql> select offerno, offering.courseno, offterm, offyear, offdays, offtime, crsdesc from offering JOIN course ON course.courseno=offering.courseno where offyear = "2006" and offterm = "spring" and crsdesc like "%programming%" or offyear = "2006" and offterm = "spring" and crsdesc like "%database%";
+
+mysql> select offerno, courseno, concat(facfirstname,' ',faclastname) as AsstName, facrank, offterm, offyear from offering JOIN faculty ON faculty.facssn=offering.facssn where courseno like "IS%" and facrank = "ASST" and offterm = "FALL" and offyear = "2005";
+
+﻿mysql> select avg(stdgpa) as average, stdmajor from student group by stdmajor;
+
+﻿mysql> select offyear, count(distinct courseno) from offering group by offyear;
+
+﻿mysql> select avg(stdgpa), stdmajor from student where stdclass = "jr" or stdclass ="sr" group by stdmajor having avg(stdgpa) > 3.1;
+
+﻿mysql> select stdmajor, stdclass, min(stdgpa) as min, max(stdgpa) as max from student group by stdmajor, stdclass;
+
+﻿mysql> select crsdesc, count(courseno) from course where courseno like "IS%" group by crsdesc;
+
+﻿mysql> select stdgpa, concat(stdfirstname,' ', stdlastname) as name, stdstate, stdclass from student where stdclass="jr" order by stdgpa asc;
+
+﻿mysql> select distinct concat (faccity,' ',facstate) as place from faculty;
+
+
+
+
