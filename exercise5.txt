@@ -1,0 +1,47 @@
+Mysql –u –root –p Howest2016!
+
+Create database vacation;
+
+Grant all on vacation.* to guest@localhost;
+
+$ cat vacation.sql | mysql  vacation
+
+﻿mysql> select * from guest where guestaddress like "%london%";
+
+﻿mysql> select * from room where type != 'single' and price < 40 order by price;
+
+﻿mysql> select * from booking where dateto is NULL;
+
+﻿mysql> select type, avg(price) FROM room GROUP BY type;
+
+﻿mysql> select type, sum(price) from room where type = "double" group by type;
+
+﻿mysql> select count(guestno), dateto from booking where MONTH(dateto) = '08';
+
+mysql> select price, type from room JOIN hotel ON room.hotelno=hotel.hotelno WHERE hotelname="Grosvenor";
+
+﻿mysql> select * from guest JOIN booking ON guest.guestno=booking.guestno JOIN hotel ON booking.hotelno=hotel.hotelno where hotelname="grosvenor";
+
+﻿mysql> select guestname, type, hotelname, datefrom, dateto from room JOIN hotel ON room.hotelno=hotel.hotelno JOIN booking ON hotel.hotelno=booking.hotelno JOIN guest ON guest.guestno=booking.guestno WHERE hotelname="Grosvenor";
+
+﻿mysql> select * from room JOIN hotel ON room.hotelno=hotel.hotelno JOIN booking ON hotel.hotelno=booking.hotelno where hotelname="grosvenor" and datefrom<curdate() and dateto>curdate();
+
+﻿mysql> select * from room JOIN hotel ON room.hotelno=hotel.hotelno JOIN booking ON hotel.hotelno=booking.hotelno where hotelname = "grosvenor" and dateto<curdate() and datefrom>curdate();
+
+﻿mysql> select distinct(room.roomno), price from room JOIN hotel ON room.hotelno=hotel.hotelno JOIN booking ON hotel.hotelno=booking.hotelno where hotelname = "grosvenor";
+
+﻿mysql> select count(roomno), hotelname, city from room JOIN hotel ON room.hotelno=hotel.hotelno where city="london" group by hotelname;
+
+﻿mysql> select hotelname, type, count(*) from room JOIN hotel ON room.hotelno=hotel.hotelno JOIN booking ON hotel.hotelno=booking.hotelno where city="london" group by hotelname, type;
+
+﻿mysql> update room SET price = (price * 1.05);
+
+
+
+
+
+
+
+
+
+
