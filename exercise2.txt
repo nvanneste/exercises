@@ -10,7 +10,7 @@ UNF DB (staffNo, dentistName, patientNo, patientName, appointmentdate, time, sur
 
 2NF	Staff (staffNo, dentistName)
 
-	Patient (patientNo, appointmentdate, patientName, time, surgeryNo)
+	Patient ('patientNo, appointmentdate', patientName, time, surgeryNo)
 
 
 
@@ -20,7 +20,7 @@ UNF DB (staffNo, dentistName, patientNo, patientName, appointmentdate, time, sur
 
 BCNF	Staff (staffNo, dentistName)
 
-	Patient (patientNo, appointmentdate, patientName)
+	Patient ('patientNo, appointmentdate', patientName)
 
 	Surgery (patientNo, time, surgeryNo)
 
