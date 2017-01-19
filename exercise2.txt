@@ -1,27 +1,39 @@
-UNF DB (staffNo, dentistName, patientNo, patientName, appointmentdate, time, surgeryNo)
+UNF 
+DB 	(staffNo, dentistName, patientNo, patientName, appointmentdate, time, surgeryNo)
 
 
 
-1NF 	Staff (staffNo, dentistName)
+1NF 	
+Staff (staffNo, dentistName, patientNo, patientName, surgeryNo)
 
-	Patient (patientNo, patientName, appointmentdate, time, surgeryNo)
+appointment (appointmentdate, time)
 
-
-
-2NF	Staff (staffNo, dentistName)
-
-	Patient ('patientNo, appointmentdate', patientName, time, surgeryNo)
+keys (staffNo, apptdate, appttime)
 
 
 
-3NF == 2NF
+2NF	
+appointment (staffNo, apptdate, appttime, patientNo, patientName)
+
+surgery (staffno, apptdate, surgeryno)
+
+dentist (staffno, dentistname)
+
+keys (staffNo, apptdate, appttime – staffno, apptdate - staffno)
 
 
 
-BCNF	Staff (staffNo, dentistName)
+3NF	
+appointment (staffNo, apptdate, appttime, patientNo)
 
-	Patient ('patientNo, appointmentdate', patientName)
+surgery (staffno, apptdate, surgeryno)
 
-	Surgery (patientNo, time, surgeryNo)
+dentist (staffno, dentistname)
+
+patient (patientno, patientname)
+
+	keys (staffNo - staffno, apptdate - patientno - staffno, apptdate, appttime)
+
+BCNF	3NF
 
 
