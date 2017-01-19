@@ -1,0 +1,8 @@
+mkdir exercises
+touch exercise1.txt
+git init
+git status
+git add exercise1.txt
+git commit -m 'oefening 1'
+git remote add origin https://github.com/nvanneste/exercises.git
+git push -u origin master
