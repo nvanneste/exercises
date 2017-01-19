@@ -1,0 +1,27 @@
+UNF DB (staffNo, dentistName, patientNo, patientName, appointmentdate, time, surgeryNo)
+
+
+
+1NF 	Staff (staffNo, dentistName)
+
+	Patient (patientNo, patientName, appointmentdate, time, surgeryNo)
+
+
+
+2NF	Staff (staffNo, dentistName)
+
+	Patient (patientNo, appointmentdate, patientName, time, surgeryNo)
+
+
+
+3NF == 2NF
+
+
+
+BCNF	Staff (staffNo, dentistName)
+
+	Patient (patientNo, appointmentdate, patientName)
+
+	Surgery (patientNo, time, surgeryNo)
+
+
