@@ -1,4 +1,4 @@
-Mysql –u –root –p Howest2016!
+Mysql –u –root –p
 
 Create database vacation;
 
